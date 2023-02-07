@@ -1,0 +1,111 @@
+/* CSS Reset for browser compatibility*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Centering my whole document using display: flex and some general styles*/
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 100vh;
+    background-color: rgb(248, 248, 236);
+    /* it's better to use padding instead of margin since padding puts a "margin" inside the tag */
+    padding: 2em;
+}
+
+/* Using grid display for better item manipulation, also using max-width for the main tag (where all of my contents are) so that it would not stretch out to unacceptable
+ sizes when users with bigger screens wouldn't have a difficult time*/
+main {
+    max-width: 1028px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 1.5rem;
+    grid-template-areas:
+        "heading heading"
+        "cat-info cat-info"
+        "siamese-1 siamese-1"
+        "siamese-2 siamese-2"
+        "cat-video cat-audio";
+    text-align: center;
+}
+
+/* The styles enclosed below are just putting the grid items inside their specificied grid space. */
+
+h1{
+    grid-area: heading;
+}
+
+.main-information{
+    grid-area: cat-info;
+}
+
+.siamese-1-container{
+    grid-area: siamese-1;
+}
+
+.siamese-2-container{
+    grid-area: siamese-2;
+}
+
+/************************************************/
+
+.cat-info-container{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Above is styling a flex container inside a grid item so that it would be not next to the image. flex direction is column so that instead of horizontally continuing it
+it would be vertically */
+
+div>img{
+    width: 30%;
+    height: auto;
+    float: left;
+    /* margins will center the image that is inside the grid */
+    margin-right: 1rem;
+    margin-left: 5rem;
+}
+
+/* The two images will have a solid border of 5 px and each image has diff color border.*/
+
+.siamese-1-img{
+    border: 5px solid red;
+}
+
+.siamese-2-img{
+    border: 5px solid blue;
+}
+
+/* Video and audio will take up 100% of the grid space and video has a height of 325px for appearance*/
+video{
+    grid-area: cat-video;
+    width: 100%;
+    height: 325px;
+}
+
+audio{
+    grid-area: cat-audio;
+    width: 100%;
+}
+
+/*GIF is 50% so that it wouldn't look stretched */
+.cat-gif{
+    width:  50%;
+    height: 260px;
+}
+
+/* Styles for my footer to stay below the page and be centered */
+
+footer{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
